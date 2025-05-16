@@ -1,0 +1,14 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="need-validation" autocomplete="off">
+  <input type="text" class="form-control" formControlName="firstName"/>
+  <input type="password" class="form-control" id="floatingPassword" placeholder="Password" formControlName="password" [class.is-invalid]="password?.invalid && password?.touched" [class.is-valid]="password?.valid && password?.touched">
+
+</form>
+<div *ngif="password?.invalid && password?.touched"
+class="invalid-feedback text-danger">
+  <div *ngif="password?.errors?.['required']" >Password is required</div>
+  <div *ngif="password?.errors?.['missingUpperCase']" >Password should contain at least 1 upper case</div>
+  <div *ngif="password?.errors?.['missingLowerCase']" >Password should contain at least 1 lower case</div>
+  <div *ngif="password?.errors?.['missingNumeric']" >Password should contain at least 1 number</div>
+  <div *ngif="password?.errors?.['minLength']" >Password should be 8 characters or more</div>
+
+</div>

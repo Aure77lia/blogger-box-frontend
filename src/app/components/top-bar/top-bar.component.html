@@ -3,6 +3,12 @@
     <a class="navbar-brand" [routerLink]="['/']">
       <i class="bi bi-postcard"></i> Blogger-Box
     </a>
+    <a [routerLink]="['/home']" class="navbar-brand">Home</a>
+    <a [routerLink]="['/users']" class="navbar-brand">All Users</a>
+    <a [routerLink]="['/users','1']" class="navbar-brand">User 1</a>
+    <a [routerLink]="['/users','2']" class="navbar-brand">User 2</a>
+    <a [routerLink]="['/connection']" class="navbar-brand">Connection</a>
+
     <form class="d-flex">
       <button class="btn btn-outline-success" type="button">
         <i class="bi bi-pencil-square"></i> Write

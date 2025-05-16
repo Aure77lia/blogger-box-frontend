@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-4 text-center">
+      <img src="https://ui-avatars.com/api/?name=User+Name&background=0D8ABC&color=fff&size=128" class="rounded-circle mb-3" alt="Avatar utilisateur" width="128" height="128">
+      <h3 class="mb-1">Nom de l'utilisateur</h3>
+      <p class="text-muted mb-2">email</p>
+      <button class="btn btn-primary btn-sm">Contacter</button>
+    </div>
+    <div class="col-md-8">
+      <h4 class="mb-3">Articles publiés</h4>
+      <div *ngIf="posts && posts.length; else noPosts">
+        <div class="list-group">
+          <a *ngFor="let post of posts" class="list-group-item list-group-item-action flex-column align-items-start mb-2">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">{{ post.title }}</h5>
+              <small>{{ post.createdDate }}</small>
+            </div>
+            <p class="mb-1 text-truncate">{{ post.content }}</p>
+            <small class="text-secondary">Catégorie : {{ post.category.name }}</small>
+          </a>
+        </div>
+      </div>
+      <ng-template #noPosts>
+        <div class="alert alert-info mt-3">Aucun article publié.</div>
+      </ng-template>
+    </div>
+  </div>
+</div>

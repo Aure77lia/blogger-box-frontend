@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {PostService } from '../../services/post.service';
 import {Post} from '../../data/post';
-import { ActivatedRoute } from '@angular/router';
-
 
 @Component({
   selector: 'app-post-list',
@@ -10,13 +8,12 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./post-list.component.css'],
   standalone: false,
 })
-export class PostListComponent implements OnInit{
-    userId!: string | null;
-    posts: Post[] = [];
-  constructor(private postService: PostService, private route: ActivatedRoute) {}
+export class UsersListComponent implements OnInit{
+  posts: Post[] = [];
+
+  constructor(private postService: PostService) {}
 
   ngOnInit(): void {
-    this.userId = this.route.snapshot.paramMap.get('id');
     this.loadPosts();
   }
   loadPosts(): void {
